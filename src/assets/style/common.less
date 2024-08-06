@@ -1,0 +1,321 @@
+// ---- [ Fonts ] ----
+@font-face {
+  font-family: "CirceRounded";
+  src: url("@/assets/fonts/CirceRounded.eot"); /* IE9*/
+  src: url("@/assets/fonts/CirceRounded.eot?#iefix") format("embedded-opentype"),
+  url("@/assets/fonts/CirceRounded.woff2") format("woff2"),
+  url("@/assets/fonts/CirceRounded.woff") format("woff"),
+  url("@/assets/fonts/CirceRounded.ttf") format("truetype"),
+  url("@/assets/fonts/CirceRounded.svg#CirceRoundedWeb") format("svg");
+}
+
+// ---- [ Variable ] ----
+@text-color : #2c2c2c;
+@btn-bg-color: #2b94ff;
+@btn-dis-color : #b7b7b7;
+
+
+// ---- [ Page ] ----
+html, body{
+  padding: 0; margin: 0;
+}
+
+body{
+  font-family: 'CirceRounded', sans-serif;
+  font-size: 14px;
+  color: @text-color;
+}
+
+.preloader{
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  img{
+    width: 40px;
+    animation: spin 1s ease infinite;
+  }
+}
+
+.l-title{
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.m-title{
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.logout{
+  position: relative;
+  font-size: 14px;
+  bottom: 10px; left:-5px;
+  color:red;
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  &:hover{
+    transform: scale(1.4);
+  }
+}
+
+.ta-right{
+  text-align: right;
+}
+.ta-center{
+  text-align: center;
+}
+
+.two-column{
+  display: flex;
+  & > * {
+    max-width: 45%;
+    .m-title{
+      white-space: nowrap;
+    }
+    &:first-child{
+      margin-right: 50px;
+    }
+  }
+}
+
+// -- Alerts --
+.alerts{
+  position: fixed;
+  top:0; right: 0;
+}
+.alerts_item{
+  color: #fff;
+  font-size: 1.6em;
+  width: 400px;
+  padding: 20px;
+  background: @btn-bg-color;
+  margin-bottom: 20px;
+  &.error{
+    background: #ff4666;
+  }
+}
+
+
+// -- Form --
+.form{
+  position: relative;
+  padding-top:100px;
+  background: #fff;
+  max-width: 70vw;
+  margin: 0 auto;
+}
+.form-content{
+  position: relative;
+}
+.form_content{
+  padding-bottom: 100px;
+  &-cnt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.form_content-tab{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  &_item{
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid @btn-dis-color;
+    transition: all 0.3s ease;
+    &.active{
+      color: #fff;
+      background: @btn-bg-color;
+      border-color: @btn-bg-color;
+    }
+    &:first-child{
+      border-radius: 4px 0 0 4px;
+      border-right: none;
+    }
+    &:last-child{
+      border-radius: 0 4px 4px 0;
+      border-left: none;
+    }
+    &:not(.active):hover{
+      cursor: pointer;
+      background-color: fade(@btn-bg-color, 10%);
+    }
+  }
+}
+.form_cnt{
+  margin-bottom: 40px;
+}
+.form_btns{
+  display: flex;
+  justify-content: space-around;
+  .btn{
+    &:first-child{
+      margin-right: 10px;
+    }
+  }
+}
+
+.form_title{
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.form_descr{
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.70);
+  margin-bottom: 20px;
+}
+
+.form-control{
+  margin-bottom: 20px;
+  display: block;
+}
+.form-field{
+  font-family: 'CirceRounded', sans-serif;
+  font-size: 1.6em;
+  width: 300px; height: 30px;
+  border: 1px solid fade(@text-color, 60%);
+  padding: 15px;
+  outline: none;
+  border-radius: 4px;
+}
+
+.form_datepicker{
+  position: relative;
+}
+.form_datepicker-cnt{
+  position: absolute;
+  top:0; left: 110%;
+  white-space: nowrap;
+}
+.form_datepicker-item{
+  margin-bottom: 10px;
+  b{
+    font-size: 1.1em;
+  }
+}
+
+.custom-checkbox{
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-bottom: 30px;
+  input{
+    display: none;
+    &:checked{
+      & + .custom-checkbox_pseudo{
+        border-color: #2463eb;
+        &:after{
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__small{
+    margin-bottom: 6px;
+    .custom-checkbox_pseudo{
+      width: 12px; height: 12px;
+      &:after{
+        font-size: 12px;
+      }
+    }
+  }
+}
+.custom-checkbox_pseudo{
+  width: 18px; height: 18px;
+  position: relative;
+  top:-1px;
+  display: inline-block;
+  border: 2px solid #000000;
+  border-radius: 2px;
+  margin-right: 6px;
+  transition: all 0.2s ease;
+  &:after{
+    content: '✔';
+    font-size: 14px;
+    color: #2463eb;
+    position: absolute;
+    top:50%; left: 54%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+}
+
+.btn{
+  font-family: 'CirceRounded', sans-serif;
+  color: #fff;
+  font-size: 1.4em;
+  background-color: #2463eb;
+  height: 50px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  &_file{
+    background: #2d9f26;
+  }
+  span{
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+  &:disabled{
+    cursor: not-allowed;
+    background-color: @btn-dis-color;
+  }
+  &:not(:disabled):hover{
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+  }
+  &__icon-fix .btn_icon{
+    max-width: 24px;
+  }
+}
+.btn_icon{
+  max-width: 0;
+  transition: all 0.4s ease;
+  &__spin{
+    animation: spin 1s infinite;
+    transition-timing-function: cubic-bezier(.1, .9, .9, .1);
+  }
+}
+
+// -- Animation --
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+.slideLeft-enter-active,
+.slideLeft-leave-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 0.5s 0.3s ease;
+}
+
+.slideLeft-enter,
+.slideLeft-leave-to {
+  transform: translateX(50px);
+  opacity: 0;
+  transition: all 0.5s 0.3s ease;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
